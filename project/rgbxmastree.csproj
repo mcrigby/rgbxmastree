@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;netcoreapp2.1</TargetFrameworks>
+    <AssemblyName>CutilloRigby.Iot.RgbXmasTree</AssemblyName>
+    <RootNamespace>Iot.Device.RgbXmasTree</RootNamespace>
+    <PackageId>CutilloRigby.Iot.RgbXmasTree</PackageId>
+    <Authors>Martin Cutillo-Rigby</Authors>
+    <Company>Martin Cutillo-Rigby</Company>
+    <Product>CutilloRigby.Iot.RgbXmasTree</Product>
+    <Version>1.0.0</Version>
+    <Description>Pi Hut RGB Xmas Tree</Description>
+    <Copyright>Martin Cutillo-Rigby 2020</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Iot.Device.Bindings" Version="1.2.0" />
+    <PackageReference Include="System.Device.Gpio" Version="1.2.0" />
+  </ItemGroup>
+
+</Project>
