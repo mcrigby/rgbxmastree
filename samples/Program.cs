@@ -18,10 +18,12 @@ namespace samples
             };
 
             var gpioController = new GpioController();
-            var rgbXmasTree = new RgbXmasTree(gpioController);
+            var rgbXmasTree = new RgbXmasTree(gpioController, 250000000);
             var brightness = (byte?)0x1; // null; // 0x1;
             var delay = 500;
 
+            Console.WriteLine($"Clock Frequency: {rgbXmasTree.ClockFrequency}Hz");
+            
             while (true)
             {
                 if (ctx.IsCancellationRequested) break;
