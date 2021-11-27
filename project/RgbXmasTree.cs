@@ -1,5 +1,6 @@
 using System;
 using System.Device.Gpio;
+using System.Device.Spi;
 using System.Drawing;
 using Iot.Device.Spi;
 
@@ -12,11 +13,21 @@ namespace Iot.Device.RgbXmasTree
         private readonly SoftwareSpi spi;
         private Color[] pixel = new Color[pixelCount];
 
-        public RgbXmasTree(GpioController gpioController)
+        public RgbXmasTree(GpioController gpioController, int clockFrequency = 500000)
         {
-            spi = new SoftwareSpi(25, -1, 12, gpioController: gpioController);            
+            var settings = new SpiConnectionSettings(0)
+            {
+                ClockFrequency = clockFrequency
+            };
+
+            spi = new SoftwareSpi(25, -1, 12, gpioController: gpioController, settings: settings);
         }
 
+        public int ClockFrequency 
+        {
+            get { return spi.ConnectionSettings.ClockFrequency; }
+        }
+        
         public Color GetPixel(byte pixelId)
         {
             ValidatePixelId(pixelId);
