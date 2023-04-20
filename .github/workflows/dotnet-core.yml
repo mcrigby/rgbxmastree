@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "deploy" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "deploy" ]
 
 jobs:
   build:
@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 5.0.100
-    - name: Install dependencies
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
       run: dotnet restore
     - name: Build library
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --no-restore
     - name: Publish nuget
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: brandedoutcast/publish-nuget@v2.5.5
       with: 
         PROJECT_FILE_PATH: project/rgbxmastree.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
