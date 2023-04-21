@@ -2,7 +2,7 @@
 using System.Device.Gpio;
 using System.Drawing;
 using System.Threading;
-using Iot.Device.RgbXmasTree;
+using CutilloRigby.Device.RgbXmasTree;
 
 namespace samples
 {

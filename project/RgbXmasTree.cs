@@ -4,7 +4,7 @@ using System.Device.Spi;
 using System.Drawing;
 using Iot.Device.Spi;
 
-namespace Iot.Device.RgbXmasTree
+namespace CutilloRigby.Device.RgbXmasTree
 {
     public class RgbXmasTree
     {
@@ -45,7 +45,7 @@ namespace Iot.Device.RgbXmasTree
         }
         public void SetPixel(byte pixelId, Color color, byte? brightness = null)
         {
-            SetPixel(new byte[] { pixelId }, color);
+            SetPixel(new byte[] { pixelId }, color, brightness);
         }
         public void SetPixel(byte[] pixelId, Color color, byte? brightness = null)
         {

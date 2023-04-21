@@ -1,4 +1,4 @@
-namespace Iot.Device.RgbXmasTree
+namespace CutilloRigby.Device.RgbXmasTree
 {
     public static class PixelIdExt
     {
