@@ -9,7 +9,7 @@
     <Authors>Martin Cutillo-Rigby</Authors>
     <Company>Martin Cutillo-Rigby</Company>
     <Product>CutilloRigby.Iot.RgbXmasTree</Product>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Description>Pi Hut RGB Xmas Tree</Description>
     <Copyright>Martin Cutillo-Rigby 2023</Copyright>
   </PropertyGroup>
