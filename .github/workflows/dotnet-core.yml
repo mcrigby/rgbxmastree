@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -20,9 +21,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build library
-      run: dotnet build --no-restore
-    - name: Publish nuget
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with: 
-        PROJECT_FILE_PATH: project/rgbxmastree.csproj
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      run: dotnet build -c Release --no-restore
+    - name: Pack nuget
+      run: dotnet pack -c Release --no-restore --no-build --output .
+    - name: Push nuget
+      run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+      
